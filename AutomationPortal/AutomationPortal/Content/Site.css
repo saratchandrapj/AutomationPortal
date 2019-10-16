@@ -1,0 +1,59 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+	font-family: "ChantelliAntiquaRegular";
+	color:white;
+}
+
+/* Override the default bootstrap behavior where horizontal description lists 
+   will truncate terms that are too long to fit in the left column 
+*/
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+
+.second {
+	background-image:url('../Images/images (2).jfif');
+	width:10px;
+	height:10px;
+}
+.navbar-nav .nav-link {
+    margin-right: 47px;
+    margin-left: 25px;
+}
+
+.d-block  {
+	height : 400px;
+	 
+	object-fit : cover;
+}
+
+nav-item {
+	font-family: "ChantelliAntiquaRegular";
+}
+
+li:hover {
+	color:blue;
+	cursor:pointer;
+}
+@font-face {
+	font-family: "ChantelliAntiquaRegular";
+	src: url("Fonts/Lato-Bold.ttf") format("truetype");
+	src: url("Fonts/Lato-BoldItalic.ttf") format("truetype");
+	font-weight: normal;
+	font-style: normal;
+}

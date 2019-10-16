@@ -1,0 +1,65 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>@ViewBag.Title - My ASP.NET Application</title>
+	@Styles.Render("~/Content/css")
+	@Scripts.Render("~/bundles/modernizr")
+	<script src="~/Scripts/jquery-3.4.1.min.js"></script>
+
+</head>
+<body style="background-color:#3AAFA9"> @*site Background color*@
+	@*DC3D24*@
+	<div class="row" style=" background-image:url('../../Images/download (2).jfif')"/>
+		<div class="col-lg-6 text-left" style="line-height:0.5">
+			<p style="font-size:34px;padding-bottom:0px;padding-left: 102px;padding-top: 7px"><strong>WeSquare</strong></p>
+			<p style="font-size: 31px;padding-left: 106px">Automation Portal</p>
+		</div>
+		<div class="col-lg-6">
+			<img src="~/Content/Images/logo.png" style="width:25%;margin-left:352px;padding-top:2.5px;" />
+		</div>
+	</div>
+	<br />
+	<div class="container" style="padding-top:0px;background-color:whitesmoke;height:50px;"> @*header color*@
+		<nav class="navbar navbar-expand nav-fill w-100">
+			<!-- Links -->
+			<ul class="navbar-nav">
+				<li class="nav-item active">
+					@Html.ActionLink("Home", "Index", "Home", new { @class = "nav-link", @style = "color:#201976;font-weight:bold" })
+				</li>
+				<li class="nav-item">
+					@Html.ActionLink("Reports", "Reports", "Home", new { @class = "nav-link", @style = "color:#201976;font-weight:bold" })
+				</li>
+				@*<li class="nav-item active">
+					@Html.ActionLink("Princples", "Index", "Home", new { @class = "nav-link", @style = "color:#201976;font-weight:bold" })
+				</li>
+				<li class="nav-item active">
+					@Html.ActionLink("Our Products", "Products", "Home", new { @class = "nav-link", @style = "color:#201976;font-weight:bold" })
+				</li>
+				<li class="nav-item active">
+					@Html.ActionLink("Services", "Services", "Home", new { @class = "nav-link", @style = "color:#201976;font-weight:bold" })
+				</li>
+				<li class="nav-item active">
+					@Html.ActionLink("Gallery", "Index", "Home", new { @class = "nav-link", @style = "color:#201976;font-weight:bold" })
+				</li>
+				<li class="nav-item">
+					@Html.ActionLink("Contact", "Contact", "Home", new { @class = "nav-link", @style = "color:#201976;font-weight:bold" })
+				</li>*@
+			</ul>
+
+		</nav>
+	</div>
+	<div class="container body-content" style="padding-bottom:50px;">
+		@RenderBody()
+		<hr />
+		<footer>
+			<p>&copy; @DateTime.Now.Year - WeSquare Automation Portal</p>
+		</footer>
+	</div>
+
+	@Scripts.Render("~/bundles/jquery")
+	@Scripts.Render("~/bundles/bootstrap")
+	@RenderSection("scripts", required: false)
+</body>
+</html>

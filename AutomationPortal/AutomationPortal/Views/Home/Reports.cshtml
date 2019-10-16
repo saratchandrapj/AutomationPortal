@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Reports";
+}
+
+<h2>Reports</h2>
+
+@foreach (var f in ViewBag.FolderList)
+{
+	<ul>
+		<li><a href="../Home/OpenSprintFolder?sprintfolderName=@f">@f</a></li>
+		@*<li>Sprint 2</li>
+		<li>Sprint 3</li>
+		<li>Sprint 4</li>
+		<li>Sprint 5</li>*@
+	</ul>
+}

@@ -1,0 +1,2047 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='utf-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Document Title</title>
+
+	<style type='text/css'>
+	</style>
+</head>
+
+	<body class='extent dark default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>IKSO Automation Test Report</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Sep 5, 2019 09:56:56 AM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+						<li status='fail'><a href='#!'>Fail <i class='material-icons red-text'>cancel</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>403ErrorPageValidation</a></li>
+					<li><a href='#'>404ErrorPageValidation</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='0%'><span class='strong'>0</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='100%'>3</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='3.654%'><span class='strong'>11</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='41.528%'>125</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='54.817%'>165</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>ErrorCode403_Validation</span>
+						<span class='test-time'>Sep 5, 2019 09:56:56 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 5, 2019 09:56:56 AM</span>
+	<span class='label end-time'>Sep 5, 2019 09:56:56 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>403ErrorPageValidation</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:09 AM</td>
+					<td class='step-details'>Checking 403 Error page when user at Login Page - No Active Session</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:09 AM</td>
+					<td class='step-details'>Action: Entering value in E-mail field</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:09 AM</td>
+					<td class='step-details'>reno@gamilc.om Entered Successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:09 AM</td>
+					<td class='step-details'>Action: Entering Value in Password field</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:09 AM</td>
+					<td class='step-details'>@ikso3App Entered Successfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:09 AM</td>
+					<td class='step-details'>Action: Clicking Submit Button</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>9:57:09 AM</td>
+					<td class='step-details'>WebElement Clicked Sucessfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:11 AM</td>
+					<td class='step-details'>Checking 403 Error page when a Customer User is trying is access the Customer Pages</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:23 AM</td>
+					<td class='step-details'>Acton: Checking 403 Page and content</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:23 AM</td>
+					<td class='step-details'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:23 AM</td>
+					<td class='step-details'>ScreenCapture path cannot be null or empty.</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:29 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:57:29 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657649621.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657649621.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657649621.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:34 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:57:35 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657655053.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657655053.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657655053.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:35 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:45 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:57:46 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657666021.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657666021.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657666021.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:46 AM</td>
+					<td class='step-details'>Checking 403 Error page when a Customer User is trying is access the Admin User Pages</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:57:57 AM</td>
+					<td class='step-details'>Acton: Checking 403 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:57:58 AM</td>
+					<td class='step-details'>403 Page Not found or content is improper:403ErrorCodefalse,PageHeaderTextfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657666021.pngScreenShot1567657678067.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657666021.pngScreenShot1567657678067.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657666021.pngScreenShot1567657678067.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:58:04 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:58:04 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657684327.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657684327.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657684327.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:58:09 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:58:09 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657689772.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657689772.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657689772.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:58:10 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:58:20 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:58:21 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657700679.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657700679.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657700679.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:58:32 AM</td>
+					<td class='step-details'>Acton: Checking 403 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:58:33 AM</td>
+					<td class='step-details'>403 Page Not found or content is improper:403ErrorCodefalse,PageHeaderTextfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657700679.pngScreenShot1567657713046.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657700679.pngScreenShot1567657713046.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657700679.pngScreenShot1567657713046.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:58:39 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:58:39 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657719328.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657719328.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657719328.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:58:44 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:58:44 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657724753.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657724753.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657724753.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:58:45 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:58:55 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:58:55 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657735659.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657735659.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657735659.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:58:55 AM</td>
+					<td class='step-details'>Checking 403 Error page when a Customer User is trying is access the Admin User Pages</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:59:07 AM</td>
+					<td class='step-details'>Acton: Checking 403 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:59:07 AM</td>
+					<td class='step-details'>403 Page Not found or content is improper:403ErrorCodefalse,PageHeaderTextfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657735659.pngScreenShot1567657747648.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657735659.pngScreenShot1567657747648.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657735659.pngScreenShot1567657747648.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:59:13 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:59:13 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657753922.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657753922.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657753922.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:59:19 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:59:19 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657759444.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657759444.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657759444.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:59:19 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:59:30 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:59:30 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657770390.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657770390.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657770390.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:59:42 AM</td>
+					<td class='step-details'>Acton: Checking 403 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:59:42 AM</td>
+					<td class='step-details'>403 Page Not found or content is improper:403ErrorCodefalse,PageHeaderTextfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657770390.pngScreenShot1567657782434.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657770390.pngScreenShot1567657782434.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657770390.pngScreenShot1567657782434.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:59:48 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:59:49 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657788996.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657788996.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657788996.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:59:54 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>9:59:54 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657794439.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657794439.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657794439.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>9:59:54 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:00:05 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:00:05 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657805410.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657805410.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657805410.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:00:05 AM</td>
+					<td class='step-details'>Checking 403 Error page when a Customer User is trying is access the Admin User Pages</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:00:17 AM</td>
+					<td class='step-details'>Acton: Checking 403 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:00:18 AM</td>
+					<td class='step-details'>403 Page Not found or content is improper:403ErrorCodefalse,PageHeaderTextfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657805410.pngScreenShot1567657817419.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657805410.pngScreenShot1567657817419.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657805410.pngScreenShot1567657817419.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:00:23 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:00:24 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657824283.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657824283.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657824283.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:00:29 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:00:29 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657829723.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657829723.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657829723.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:00:30 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:00:40 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:00:40 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657840597.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657840597.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657840597.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:00:52 AM</td>
+					<td class='step-details'>Acton: Checking 403 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:00:52 AM</td>
+					<td class='step-details'>403 Page Not found or content is improper:403ErrorCodefalse,PageHeaderTextfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657840597.pngScreenShot1567657852897.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657840597.pngScreenShot1567657852897.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657840597.pngScreenShot1567657852897.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:00:58 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:00:59 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657859181.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657859181.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657859181.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:01:04 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:01:04 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657864618.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657864618.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657864618.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:01:05 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:01:15 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:01:15 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657875538.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657875538.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657875538.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:01:15 AM</td>
+					<td class='step-details'>Action: ErrorCode403_Validation</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:01:15 AM</td>
+					<td class='step-details'>CurrentTest case execution end Here</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:01:16 AM</td>
+					<td class='step-details'><img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657876192.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657876192.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657876192.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='2'>
+					<div class='test-heading'>
+						<span class='test-name'>ErrorCode404_Validation</span>
+						<span class='test-time'>Sep 5, 2019 10:01:17 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 5, 2019 10:01:17 AM</span>
+	<span class='label end-time'>Sep 5, 2019 10:01:17 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+	<div class='test-attributes'>
+			<div class='category-list'>
+				<span class='category label white-text'>404ErrorPageValidation</span>
+			</div>
+	</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:01:31 AM</td>
+					<td class='step-details'>Checking 404 Error page when user at Login Page - No Active Session</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:01:37 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:01:37 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657897829.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657897829.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657897829.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:01:42 AM</td>
+					<td class='step-details'>Acton: Checking User at IKSO Login Page</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:01:43 AM</td>
+					<td class='step-details'>User NOT at Login Page<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657903298.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657903298.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657903298.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:02:00 AM</td>
+					<td class='step-details'>Acton: Checking 404 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:02:00 AM</td>
+					<td class='step-details'>404 Page Not found or content is improper:404ErrorCodefalse,PageHeaderTextfalse,Page Content textfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657903298.pngScreenShot1567657920407.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657903298.pngScreenShot1567657920407.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657903298.pngScreenShot1567657920407.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:02:01 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:02:11 AM</td>
+					<td class='step-details'>Acton: Checking User at IKSO Login Page</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:02:12 AM</td>
+					<td class='step-details'>User NOT at Login Page<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657932064.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657932064.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657932064.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:02:17 AM</td>
+					<td class='step-details'>Acton: Entering value in E-mail field</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:02:17 AM</td>
+					<td class='step-details'>Object is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657937895.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657937895.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657937895.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:02:23 AM</td>
+					<td class='step-details'>Acton: Entering Value in Password field</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:02:23 AM</td>
+					<td class='step-details'>Object is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657943926.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657943926.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657943926.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:02:29 AM</td>
+					<td class='step-details'>Acton: Clicking Submit Button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:02:29 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657949903.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657949903.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657949903.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:02:31 AM</td>
+					<td class='step-details'>Checking 404 Error page when user DashBoard Screen</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:02:48 AM</td>
+					<td class='step-details'>Acton: Checking 404 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:02:49 AM</td>
+					<td class='step-details'>404 Page Not found or content is improper:404ErrorCodefalse,PageHeaderTextfalse,Page Content textfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657949903.pngScreenShot1567657969120.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657949903.pngScreenShot1567657969120.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657949903.pngScreenShot1567657969120.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:02:55 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:02:55 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657975529.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657975529.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657975529.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:03:00 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:03:01 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657981101.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657981101.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657981101.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:03:01 AM</td>
+					<td class='step-details'>Checking 404 Error page when user at Customer Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:03:06 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:03:06 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657986910.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657986910.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657986910.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:03:12 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:03:13 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657993088.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657993088.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657993088.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:03:18 AM</td>
+					<td class='step-details'>Acton: Click Cusotmers</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:03:19 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657999102.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657999102.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657999102.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:03:36 AM</td>
+					<td class='step-details'>Acton: Checking 404 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:03:37 AM</td>
+					<td class='step-details'>404 Page Not found or content is improper:404ErrorCodefalse,PageHeaderTextfalse,Page Content textfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567657999102.pngScreenShot1567658017318.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657999102.pngScreenShot1567658017318.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567657999102.pngScreenShot1567658017318.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:03:42 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:03:43 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658023098.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658023098.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658023098.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:03:48 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:03:48 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658028969.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658028969.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658028969.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:03:54 AM</td>
+					<td class='step-details'>Acton: Click Cusotmers</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:03:54 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658034789.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658034789.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658034789.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:04:01 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:04:02 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658042061.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658042061.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658042061.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:04:07 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:04:07 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658047607.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658047607.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658047607.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:04:13 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:04:13 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658053506.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658053506.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658053506.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:04:18 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:04:19 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658059305.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658059305.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658059305.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:04:24 AM</td>
+					<td class='step-details'>Acton: Click Cusotmers</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:04:25 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658065107.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658065107.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658065107.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:04:31 AM</td>
+					<td class='step-details'>Acton: Click on Create Customer Button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:04:31 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658071980.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658071980.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658071980.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:04:48 AM</td>
+					<td class='step-details'>Acton: Checking 404 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:04:49 AM</td>
+					<td class='step-details'>404 Page Not found or content is improper:404ErrorCodefalse,PageHeaderTextfalse,Page Content textfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658071980.pngScreenShot1567658089134.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658071980.pngScreenShot1567658089134.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658071980.pngScreenShot1567658089134.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:04:54 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:04:55 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658095331.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658095331.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658095331.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:05:00 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:05:01 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658101287.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658101287.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658101287.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:05:06 AM</td>
+					<td class='step-details'>Acton: Click Cusotmers</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:05:07 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658107182.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658107182.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658107182.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:05:13 AM</td>
+					<td class='step-details'>Acton: Click on Create Customer Button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:05:14 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658114038.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658114038.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658114038.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:05:20 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:05:20 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658120388.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658120388.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658120388.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:05:25 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:05:25 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658125882.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658125882.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658125882.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:05:31 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:05:31 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658131630.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658131630.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658131630.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:05:37 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:05:37 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658137445.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658137445.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658137445.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:05:42 AM</td>
+					<td class='step-details'>Acton: Click Cusotmers</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:05:43 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658143235.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658143235.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658143235.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:05:44 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:05:54 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:05:55 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658155157.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658155157.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658155157.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:06:00 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:06:01 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658161262.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658161262.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658161262.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:06:06 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:06:07 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658167128.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658167128.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658167128.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:06:12 AM</td>
+					<td class='step-details'>Acton: Click Cusotmers</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:06:12 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658172928.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658172928.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658172928.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:06:19 AM</td>
+					<td class='step-details'>Acton: Click on Create Customer Button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:06:19 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658179708.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658179708.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658179708.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:06:20 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:06:30 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:06:30 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658190605.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658190605.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658190605.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:06:30 AM</td>
+					<td class='step-details'>Checking 404 Error page when user at User Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:06:36 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:06:36 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658196348.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658196348.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658196348.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:06:41 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:06:42 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658202174.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658202174.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658202174.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:06:47 AM</td>
+					<td class='step-details'>Acton: Click Users</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:06:47 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658207941.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658207941.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658207941.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:07:05 AM</td>
+					<td class='step-details'>Acton: Checking 404 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:07:06 AM</td>
+					<td class='step-details'>404 Page Not found or content is improper:404ErrorCodefalse,PageHeaderTextfalse,Page Content textfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658207941.pngScreenShot1567658226059.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658207941.pngScreenShot1567658226059.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658207941.pngScreenShot1567658226059.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:07:11 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:07:12 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658232145.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658232145.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658232145.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:07:17 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:07:17 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658237903.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658237903.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658237903.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:07:23 AM</td>
+					<td class='step-details'>Acton: Click Users</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:07:23 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658243689.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658243689.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658243689.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:07:30 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:07:30 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658250953.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658250953.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658250953.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:07:36 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:07:36 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658256437.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658256437.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658256437.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:07:41 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:07:42 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658262193.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658262193.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658262193.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:07:47 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:07:47 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658267924.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658267924.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658267924.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:07:53 AM</td>
+					<td class='step-details'>Acton: Click Users</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:07:53 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658273712.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658273712.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658273712.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:08:00 AM</td>
+					<td class='step-details'>Acton: Click on Create User</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:08:01 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658280999.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658280999.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658280999.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:08:17 AM</td>
+					<td class='step-details'>Acton: Checking 404 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:08:18 AM</td>
+					<td class='step-details'>404 Page Not found or content is improper:404ErrorCodefalse,PageHeaderTextfalse,Page Content textfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658280999.pngScreenShot1567658298161.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658280999.pngScreenShot1567658298161.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658280999.pngScreenShot1567658298161.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:08:23 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:08:23 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658303958.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658303958.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658303958.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:08:29 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:08:29 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658309728.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658309728.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658309728.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:08:35 AM</td>
+					<td class='step-details'>Acton: Click Users</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:08:35 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658315485.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658315485.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658315485.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:08:41 AM</td>
+					<td class='step-details'>Acton: Click on Create User</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:08:42 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658322232.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658322232.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658322232.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:08:48 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:08:48 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658328433.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658328433.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658328433.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:08:53 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:08:53 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658333888.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658333888.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658333888.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:08:59 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:08:59 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658339673.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658339673.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658339673.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:09:05 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:09:05 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658345448.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658345448.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658345448.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:09:10 AM</td>
+					<td class='step-details'>Acton: Click Users</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:09:11 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658351220.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658351220.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658351220.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:09:12 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:09:22 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:09:23 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658363140.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658363140.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658363140.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:09:28 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:09:28 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658368902.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658368902.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658368902.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:09:34 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:09:34 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658374688.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658374688.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658374688.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:09:40 AM</td>
+					<td class='step-details'>Acton: Click Users</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:09:40 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658380445.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658380445.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658380445.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:09:46 AM</td>
+					<td class='step-details'>Acton: Click on Create User</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:09:47 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658387214.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658387214.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658387214.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:09:47 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:09:57 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:09:58 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658398106.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658398106.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658398106.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:09:58 AM</td>
+					<td class='step-details'>Checking 404 Error page when user at Customer Permission Page</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:10:03 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:10:03 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658403872.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658403872.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658403872.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:10:09 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:10:09 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658409657.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658409657.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658409657.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:10:15 AM</td>
+					<td class='step-details'>Acton: Click Customer Permissions</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:10:15 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658415414.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658415414.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658415414.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:10:33 AM</td>
+					<td class='step-details'>Acton: Checking 404 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:10:33 AM</td>
+					<td class='step-details'>404 Page Not found or content is improper:404ErrorCodefalse,PageHeaderTextfalse,Page Content textfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658415414.pngScreenShot1567658433543.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658415414.pngScreenShot1567658433543.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658415414.pngScreenShot1567658433543.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:10:39 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:10:39 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658439628.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658439628.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658439628.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:10:45 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:10:45 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658445392.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658445392.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658445392.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:10:50 AM</td>
+					<td class='step-details'>Acton: Click Customer Permissions</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:10:51 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658451175.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658451175.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658451175.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:10:58 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:10:58 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658458443.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658458443.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658458443.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:11:03 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:11:03 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658463911.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658463911.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658463911.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:11:09 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:11:09 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658469675.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658469675.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658469675.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:11:15 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:11:15 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658475451.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658475451.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658475451.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:11:20 AM</td>
+					<td class='step-details'>Acton: Click Customer Permissions</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:11:21 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658481222.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658481222.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658481222.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:11:27 AM</td>
+					<td class='step-details'>Acton: Click Create Premission</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:11:27 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658487978.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658487978.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658487978.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:11:44 AM</td>
+					<td class='step-details'>Acton: Checking 404 Page and content</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:11:45 AM</td>
+					<td class='step-details'>404 Page Not found or content is improper:404ErrorCodefalse,PageHeaderTextfalse,Page Content textfalse<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658487978.pngScreenShot1567658505090.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658487978.pngScreenShot1567658505090.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658487978.pngScreenShot1567658505090.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:11:50 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:11:51 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658511211.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658511211.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658511211.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:11:56 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:11:57 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658516994.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658516994.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658516994.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:12:02 AM</td>
+					<td class='step-details'>Acton: Click Customer Permissions</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:12:02 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658522761.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658522761.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658522761.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:12:09 AM</td>
+					<td class='step-details'>Acton: Click Create Premission</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:12:09 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658529505.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658529505.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658529505.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:12:15 AM</td>
+					<td class='step-details'>Acton: Click Go back to home button</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:12:15 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658535749.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658535749.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658535749.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:12:20 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:12:21 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658541179.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658541179.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658541179.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:12:26 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:12:26 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658546943.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658546943.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658546943.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:12:32 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:12:32 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658552785.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658552785.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658552785.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:12:38 AM</td>
+					<td class='step-details'>Acton: Click Customer Permissions</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:12:38 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658558568.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658558568.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658558568.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:12:40 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:12:50 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:12:51 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658570468.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658570468.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658570468.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:12:56 AM</td>
+					<td class='step-details'>Acton: Click on Hamburger Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:12:56 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658576877.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658576877.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658576877.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:02 AM</td>
+					<td class='step-details'>Acton: Click Admin Icon</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:13:02 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658582658.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658582658.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658582658.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:08 AM</td>
+					<td class='step-details'>Acton: Click Customer Permissions</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:13:08 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658588425.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658588425.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658588425.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:14 AM</td>
+					<td class='step-details'>Acton: Click Create Premission</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:13:15 AM</td>
+					<td class='step-details'>WebElement is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658595203.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658595203.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658595203.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:15 AM</td>
+					<td class='step-details'>Checking the Login Page after 5 sec</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:25 AM</td>
+					<td class='step-details'>Acton: Checking the Profile Data Lable in DashBoard screen</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:13:26 AM</td>
+					<td class='step-details'>User NOT at Dashboard screen<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658606173.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658606173.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658606173.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:26 AM</td>
+					<td class='step-details'>Action: ErrorCode404_Validation</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:26 AM</td>
+					<td class='step-details'>CurrentTest case execution end Here</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:13:26 AM</td>
+					<td class='step-details'><img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658606537.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658606537.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658606537.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active  fail' status='fail' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>LoginPage_UIValidation</span>
+						<span class='test-time'>Sep 5, 2019 10:13:27 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Sep 5, 2019 10:13:27 AM</span>
+	<span class='label end-time'>Sep 5, 2019 10:13:27 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 0s+0ms</span>
+</div>
+	<div class='test-steps'>
+		<table class='bordered table-results'>
+			<thead>
+				<tr>
+					<th>Status</th>
+					<th>Timestamp</th>
+					<th>Details</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:38 AM</td>
+					<td class='step-details'>Action: Clicking Submit Button</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:13:38 AM</td>
+					<td class='step-details'>WebElement Clicked Sucessfully</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:39 AM</td>
+					<td class='step-details'>Action: Mandatory Message Valdation</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:13:39 AM</td>
+					<td class='step-details'>Email is required is present</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:13:40 AM</td>
+					<td class='step-details'><img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658620263.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658620263.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658620263.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:41 AM</td>
+					<td class='step-details'>Action: Mandatory Message Valdation</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:13:41 AM</td>
+					<td class='step-details'>Password is required is present</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:13:42 AM</td>
+					<td class='step-details'><img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658622061.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658622061.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658622061.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:47 AM</td>
+					<td class='step-details'>Acton: Entering value in E-mail field</td>
+				</tr>
+				<tr class='log' status='fail'>
+					<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+					<td class='timestamp'>10:13:48 AM</td>
+					<td class='step-details'>Object is Not Available<img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658628065.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658628065.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658628065.png'></td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:48 AM</td>
+					<td class='step-details'>Aborting Execution - User chosen the above step is Mandatory to pass but step failed</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:48 AM</td>
+					<td class='step-details'>Action: LoginPage_UIValidation</td>
+				</tr>
+				<tr class='log' status='info'>
+					<td class='status info' title='info' alt='info'><i class='material-icons'>info_outline</i></td>
+					<td class='timestamp'>10:13:48 AM</td>
+					<td class='step-details'>CurrentTest case execution end Here</td>
+				</tr>
+				<tr class='log' status='pass'>
+					<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+					<td class='timestamp'>10:13:48 AM</td>
+					<td class='step-details'><img data-featherlight='M:\AutomationFolder\IKSO\Images\ScreenShot1567658628402.png' width='10%' src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658628402.png' data-src='M:\AutomationFolder\IKSO\Images\ScreenShot1567658628402.png'></td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>403ErrorPageValidation</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 5, 2019 09:56:56 AM</td>
+										<td class='linked' test-id='1'>ErrorCode403_Validation</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>404ErrorPageValidation</span>
+						<span class='category-status right'>
+							<span class='label fail'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							
+							<span class='label red lighten-1 white-text'>Failed: 1</span>
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Sep 5, 2019 10:01:17 AM</td>
+										<td class='linked' test-id='2'>ErrorCode404_Validation</td>
+										<td><span class='test-status fail'>fail</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>3</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>301</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Sep 5, 2019 09:56:56 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Sep 5, 2019 10:13:49 AM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 16m 52s+825ms</div>
+				</div>
+			</div>
+			<div class='col s4'>
+				<div class='card-panel dashboard-environment'>
+					<span class='right label cyan white-text'>Environment</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+						</tr>
+							<tr>
+								<td>Sprint</td>
+								<td>Sprint 4</td>
+							</tr>
+							<tr>
+								<td>Project</td>
+								<td>IKSO</td>
+							</tr>
+							<tr>
+								<td>Ran by</td>
+								<td>Mahesh</td>
+							</tr>
+							<tr>
+								<td>Envinorment</td>
+								<td>Dev.ikso.nl</td>
+							</tr>
+							<tr>
+								<td>URL</td>
+								<td>https://dev.ikso.nl</td>
+							</tr>
+					</table>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>403ErrorPageValidation</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+						<tr>
+							<td>404ErrorPageValidation</td>
+							<td>0</td>
+							<td>1</td>
+							<td>0</td>
+							<td>
+									0%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 0,
+				failParent: 3,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 3,
+				
+				passChild: 11,
+				failChild: 125,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 165,
+				exceptionsChild: 125,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 		</script>
+	</body>
+	
+</html>
